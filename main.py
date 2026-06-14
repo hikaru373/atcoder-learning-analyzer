@@ -7,7 +7,6 @@ import json
 
 app = FastAPI()
 templates = Jinja2Templates(directory="html")
-templates.env.cache = {}
 
 # HTML
 from fastapi.staticfiles import StaticFiles
