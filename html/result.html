@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="icon" href="/static/images/logo_input.ico">
+    <link rel="stylesheet" href="/static/css/result.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>{{ user }}</h1>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% else %}
+
+        <p class="info">
+            推定レーティング:
+            <span>{{ rating }}</span>
+        </p>
+
+        <p class="info">
+            推奨Diff:
+            <span>{{ from_diff }} - {{ to_diff }}</span>
+        </p>
+
+        {% if cached %}
+            <p class="cached">
+                Redisキャッシュから取得
+            </p>
+        {% endif %}
+
+        <a href="{{ url }}" target="_blank" class="button">
+            オススメ問題一覧
+        </a>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
