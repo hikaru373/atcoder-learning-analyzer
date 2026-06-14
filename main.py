@@ -7,12 +7,7 @@ import json
 
 app = FastAPI()
 templates = Jinja2Templates(directory="html")
-
-import os
-
-print("cwd:", os.getcwd())
-print("html exists:", os.path.exists("html"))
-print("input.html exists:", os.path.exists("html/input.html"))
+templates.env.cache = {}
 
 # HTML
 from fastapi.staticfiles import StaticFiles
