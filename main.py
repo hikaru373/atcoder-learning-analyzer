@@ -30,7 +30,7 @@ def fetch_history(user):
 def estimate_rating(history):
     if not history:
         return 0
-    perf = [h.get("Performance") for h in history if h["IsRated"]]
+    perf = [h.get("Performance") for h in history if h.get("IsRated")]
     if not perf:
         return 0
     return sum(perf[-5:]) // min(len(perf), 5)
