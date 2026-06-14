@@ -53,10 +53,9 @@ def analyze(request: Request, user = Form(...)):
     # Redisに存在するか
     cached = r.get(user)
     if cached:
-        result = json.loads(cached)
-        result["request"] = request
+        result = json.loads(cached.decode("utf-8"))
         result["cached"] = True
-        return templates.TemplateResponse("result.html", result)
+        return templates.TemplateResponse("result.html", {"request": request, **result})
 
     history = fetch_history(user)
     # ユーザー名が存在しない
@@ -73,6 +72,9 @@ def analyze(request: Request, user = Form(...)):
     # Redisに保存（期限：1日）
     r.set(user, json.dumps(result), ex=86400)
 
-    result["request"] = request
     result["cached"] = False
-    return templates.TemplateResponse("result.html", result)
+    return templates.TemplateResponse("result.html", {"request": request ,**result })
+
+
+
+
