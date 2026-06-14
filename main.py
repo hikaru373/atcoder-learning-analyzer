@@ -14,7 +14,8 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Redis
 ### host
-r = redis.Redis(host="localhost", port=6379, decode_responses=True)
+import os
+r = redis.from_url(os.getenv("REDIS_URL"))
 
 
 # ユーザーのコンテスト履歴を取得
