@@ -46,7 +46,7 @@ def rating_classify(rating):
 
 @app.get("/")
 def home(request: Request):
-    return templates.TemplateResponse("input.html", {"request": request})
+    return templates.TemplateResponse(request ,"input.html" )
 
 @app.post("/analyze")
 def analyze(request: Request, user = Form(...)):
@@ -55,12 +55,12 @@ def analyze(request: Request, user = Form(...)):
     if cached:
         result = json.loads(cached.decode("utf-8"))
         result["cached"] = True
-        return templates.TemplateResponse("result.html", {"request": request, **result})
+        return templates.TemplateResponse(request ,"result.html" ,result )
 
     history = fetch_history(user)
     # ユーザー名が存在しない
     if not history:
-        return templates.TemplateResponse("result.html", {"request": request, "user": user, "error": "ユーザー名が存在しません"})
+        return templates.TemplateResponse(request, "result.html", {"user": user, "error": "ユーザー名が存在しません"})
 
     # レーティング分析
     rating = estimate_rating(history)
@@ -73,7 +73,7 @@ def analyze(request: Request, user = Form(...)):
     r.set(user, json.dumps(result), ex=86400)
 
     result["cached"] = False
-    return templates.TemplateResponse("result.html", {"request": request ,**result })
+    return templates.TemplateResponse(request ,"result.html" ,result )
 
 
 
