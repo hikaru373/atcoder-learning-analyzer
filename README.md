@@ -21,23 +21,25 @@ AtCoderのユーザー名を入力すると、過去のコンテスト結果か�
 [こちらのサイトから](https://atcoder-learning-analyzer.onrender.com)<br>
 AtCoderのユーザー名を入力し、スタートボタンを押す。<br><br>
 # ④ セットアップ手順
-## 1. リポジトリのクローン<br>
+### 1. リポジトリのクローン<br>
 ```
 git clone https://github.com/hikaru373/atcoder-learning-analyzer.git
 ```
 ```
 cd atcoder-learning-analyzer
 ```
-## 2. 必要ライブラリのインストール<br>
+### 2. 必要ライブラリのインストール<br>
 ```
 pip install -r requirements.txt
 ```
-## 3.環境変数の設定<br>
+### 3.環境変数の設定<br>
 ```
 export REDIS_URL=redis://localhost:6379
 ```
-## 4.サーバー起動<br>
+### 4.サーバー起動<br>
+```
 uvicorn main:app --reload<br><br>
+```
 # ⑤ ディレクトリ構成
 <pre>
 atcoder-learning-analyzer
