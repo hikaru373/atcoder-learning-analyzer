@@ -24,6 +24,8 @@ AtCoderのユーザー名を入力し、スタートボタンを押す。<br><br
 1. リポジトリのクローン<br>
 ```bash
 git clone https://github.com/hikaru373/atcoder-learning-analyzer.git
+```
+```bash
 cd atcoder-learning-analyzer
 ```
 2. 必要ライブラリのインストール<br>
