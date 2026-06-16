@@ -19,23 +19,24 @@ AtCoderのユーザー名を入力すると、過去のコンテスト結果か�
 + 問題一覧ページへのリンク生成
 + Redisによるキャッシュ機能
 
-<br><br><br><br>
+<br><br>
 # ③ 使い方
-[こちらのサイトから](https://atcoder-learning-analyzer.onrender.com)
+[こちらのサイトから](https://atcoder-learning-analyzer.onrender.com)<br>
+AtCoderのユーザー名を入力し、スタートボタンを押す
 
 <br><br>
 # ④ セットアップ手順
 
 <br><br>
 # ⑤ ディレクトリ構成
-├── main.py
-├── requirements.txt
-├── README.md
-├── html
-│    ├── input.html
-│    └── result.html
-└── static
-    └── images
+├── main.py<br>
+├── requirements.txt<br>
+├── README.md<br>
+├── html<br>
+│    ├── input.html<br>
+│    └── result.html<br>
+└── static<br>
+    └── images<br>
 <br><br>
 # ⑥ 使用技術
 + Python
