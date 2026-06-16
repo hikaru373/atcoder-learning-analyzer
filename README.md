@@ -5,10 +5,10 @@
 4. セットアップ手順
 5. ディレクトリ構成
 6. 使用技術
-<br><br>
+<br><br><br>
 # ① 概要
 AtCoderのユーザー名を入力すると、過去のコンテスト結果から推定レーティングを算出し、学習に適した問題難易度帯を表示します。推薦された難易度帯の問題一覧ページへ直接アクセスできるため、効率的な競技プログラミング学習を支援します。
-<br><br>
+<br><br><br>
 # ② 主な機能
 + AtCoderユーザー情報の取得
 + コンテスト履歴の分析
@@ -16,21 +16,21 @@ AtCoderのユーザー名を入力すると、過去のコンテスト結果か�
 + 学習推奨Diff帯の表示
 + 問題一覧ページへのリンク生成
 + Redisによるキャッシュ機能
-
-<br><br>
+<br><br><br>
 # ③ 使い方
 [こちらのサイトから](https://atcoder-learning-analyzer.onrender.com)<br>
-AtCoderのユーザー名を入力し、スタートボタンを押す。
-<br><br>
+AtCoderのユーザー名を入力し、スタートボタンを押す。<br><br>
 # ④ セットアップ手順
-1. リポジトリのクローン
-git clone https://github.com/hikaru373/atcoder-learning-analyzer.git<br>
-cd atcoder-learning-analyzer<br><br>
-2. 必要ライブラリのインストール
+1. リポジトリのクローン<br>
+```bash
+git clone https://github.com/hikaru373/atcoder-learning-analyzer.git
+cd atcoder-learning-analyzer
+```
+2. 必要ライブラリのインストール<br>
 pip install -r requirements.txt<br><br>
-3.環境変数の設定
-export REDIS_URL=redis://localhost:6379
-4.サーバー起動
+3.環境変数の設定<br>
+export REDIS_URL=redis://localhost:6379<br>
+4.サーバー起動<br>
 uvicorn main:app --reload<br><br>
 # ⑤ ディレクトリ構成
 <pre>
@@ -44,7 +44,7 @@ atcoder-learning-analyzer
 └── static
     └── images
 </pre>
-<br><br>
+<br><br><br>
 # ⑥ 使用技術
 + Python
 + FastAPI
