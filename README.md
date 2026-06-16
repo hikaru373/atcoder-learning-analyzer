@@ -7,9 +7,7 @@
 6. 使用技術
 <br><br>
 # ① 概要
-AtCoderのユーザー名を入力すると、過去のコンテスト結果から推定レーティングを算出し、学習に適した問題難易度帯を表示します。
-推薦された難易度帯の問題一覧ページへ直接アクセスできるため、効率的な競技プログラミング学習を支援します。
-
+AtCoderのユーザー名を入力すると、過去のコンテスト結果から推定レーティングを算出し、学習に適した問題難易度帯を表示します。推薦された難易度帯の問題一覧ページへ直接アクセスできるため、効率的な競技プログラミング学習を支援します。
 <br><br>
 # ② 主な機能
 + AtCoderユーザー情報の取得
@@ -22,22 +20,29 @@ AtCoderのユーザー名を入力すると、過去のコンテスト結果か�
 <br><br>
 # ③ 使い方
 [こちらのサイトから](https://atcoder-learning-analyzer.onrender.com)<br>
-AtCoderのユーザー名を入力し、スタートボタンを押す
-
+AtCoderのユーザー名を入力し、スタートボタンを押す。
 <br><br>
 # ④ セットアップ手順
-
-<br><br>
+1. リポジトリのクローン
+git clone https://github.com/hikaru373/atcoder-learning-analyzer.git<br>
+cd atcoder-learning-analyzer<br><br>
+2. 必要ライブラリのインストール
+pip install -r requirements.txt<br><br>
+3.環境変数の設定
+export REDIS_URL=redis://localhost:6379
+4.サーバー起動
+uvicorn main:app --reload<br><br>
 # ⑤ ディレクトリ構成
 <pre>
-├── main.py<br>
-├── requirements.txt<br>
-├── README.md<br>
-├── html<br>
-│    ├── input.html<br>
-│    └── result.html<br>
-└── static<br>
-    └── images<br>
+atcoder-learning-analyzer
+├── main.py
+├── requirements.txt
+├── README.md
+├── html
+│    ├── input.html
+│    └── result.html
+└── static
+    └── images
 </pre>
 <br><br>
 # ⑥ 使用技術
