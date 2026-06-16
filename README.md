@@ -19,7 +19,8 @@ AtCoderのユーザー名を入力すると、過去のコンテスト結果か�
 <br><br><br>
 # ③ 使い方
 [こちらのサイトから](https://atcoder-learning-analyzer.onrender.com)<br>
-AtCoderのユーザー名を入力し、スタートボタンを押す。<br><br>
+AtCoderのユーザー名を入力し、スタートボタンを押す。
+<br><br><br>
 # ④ セットアップ手順
 ### 1. リポジトリのクローン<br>
 ```
@@ -40,6 +41,7 @@ export REDIS_URL=redis://localhost:6379
 ```
 uvicorn main:app --reload<br><br>
 ```
+<br><br>
 # ⑤ ディレクトリ構成
 <pre>
 atcoder-learning-analyzer
