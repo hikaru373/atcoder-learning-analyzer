@@ -29,6 +29,7 @@ AtCoderのユーザー名を入力し、スタートボタンを押す
 
 <br><br>
 # ⑤ ディレクトリ構成
+<pre>
 ├── main.py<br>
 ├── requirements.txt<br>
 ├── README.md<br>
@@ -37,6 +38,7 @@ AtCoderのユーザー名を入力し、スタートボタンを押す
 │    └── result.html<br>
 └── static<br>
     └── images<br>
+</pre>
 <br><br>
 # ⑥ 使用技術
 + Python
