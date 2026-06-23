@@ -39,7 +39,7 @@ export REDIS_URL=redis://localhost:6379
 ```
 ### 4.サーバー起動<br>
 ```
-uvicorn main:app --reload<br><br>
+uvicorn main:app --reload
 ```
 <br><br>
 # ⑤ ディレクトリ構成
