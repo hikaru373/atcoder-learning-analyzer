@@ -18,13 +18,13 @@
     {% else %}
 
         <p class="info">
-            推定レーティング:
+            推定レーティング: 
             <span><font color="{{ color }}">{{ rating }}</font></span>
         </p>
 
         <p class="info">
             推奨Diff:
-            <span>{{ from_diff }} - {{ to_diff }}</span>
+            <span><font color="{{ color }}">{{ from_diff }} - {{ to_diff }}</font></span>
         </p>
 
         {% if cached %}
