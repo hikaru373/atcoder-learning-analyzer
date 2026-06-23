@@ -37,11 +37,12 @@ def estimate_rating(history):
 
 # レーティング分類
 def rating_classify(rating):
+    color=["#808080","#804000","#008000","#00C0C0","#0000FF","#C0C000","#FF8000","#FF0000"]
     if rating>=3600:
-        return 3600,3999
+        return 3600,3999,color[-1]
     else:
         base = rating // 400
-        return base*400, (base + 1)*400-1
+        return base*400, (base + 1)*400-1 ,color[base]
 
 
 @app.get("/")
@@ -64,10 +65,10 @@ def analyze(request: Request, user = Form(...)):
 
     # レーティング分析
     rating = estimate_rating(history)
-    from_diff,to_diff = rating_classify(rating)
+    from_diff,to_diff,color = rating_classify(rating)
 
     url = f"https://kenkoooo.com/atcoder/#/list?fromDiff={from_diff}&toDiff={to_diff}"
-    result = {"user": user, "rating": rating, "from_diff": from_diff, "to_diff": to_diff, "url": url }
+    result = {"user": user, "rating": rating, "from_diff": from_diff, "to_diff": to_diff, "url": url ,"color": color}
 
     # Redisに保存（期限：1日）
     r.set(user, json.dumps(result), ex=86400)
