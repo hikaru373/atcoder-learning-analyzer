@@ -30,7 +30,7 @@ def problem():
         tmp_id = {x["id"] for x in problems}
         for id, data in models.items():
             if id not in tmp_id:
-                problems.append({ "id": id, "difficulty": data.get["difficulty"] })
+                problems.append({ "id": id, "difficulty": data.get("difficulty") })
         return problems
 #ランダム
 def random_problem():
