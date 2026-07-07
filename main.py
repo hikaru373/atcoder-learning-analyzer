@@ -12,10 +12,28 @@ templates = Jinja2Templates(directory="html")
 from fastapi.staticfiles import StaticFiles
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+
 # Redis
-### host
 import os
 r = redis.from_url(os.getenv("REDIS_URL"))
+
+
+problems = []
+#問題難易度
+def problem():
+    global problems
+    models = requests.get("https://kenkoooo.com/atcoder/resources/problem-models.json").json()
+    if len(problems) == len(models):
+        return problems
+    else:
+        tmp_id = {x["id"] for x in problems}
+        for id, data in models.items():
+            if id not in tmp_id:
+                problems.append({ "id": id, "difficulty": data["difficulty"] })
+        return problems
+#ランダム
+def random_problem():
+    return random.choice(problem())
 
 
 # ユーザーのコンテスト履歴を取得
@@ -69,11 +87,14 @@ def analyze(request: Request, user = Form(...)):
 
     url = f"https://kenkoooo.com/atcoder/#/list?fromDiff={from_diff}&toDiff={to_diff}"
     result = {"user": user, "rating": rating, "from_diff": from_diff, "to_diff": to_diff, "url": url ,"color": color}
-
+    
     # Redisに保存（期限：1日）
     r.set(user, json.dumps(result), ex=86400)
 
     result["cached"] = False
+    
+    #ランダム
+    result["random_problem"]=random_problem()
     return templates.TemplateResponse(request ,"result.html" ,result )
 
 
