@@ -4,6 +4,7 @@ from fastapi.templating import Jinja2Templates
 import requests
 import redis
 import json
+import random
 
 app = FastAPI()
 templates = Jinja2Templates(directory="html")
@@ -74,6 +75,7 @@ def analyze(request: Request, user = Form(...)):
     if cached:
         result = json.loads(cached.decode("utf-8"))
         result["cached"] = True
+        result["random_problem"] = random_problem()
         return templates.TemplateResponse(request ,"result.html" ,result )
 
     history = fetch_history(user)
@@ -94,7 +96,7 @@ def analyze(request: Request, user = Form(...)):
     result["cached"] = False
     
     #ランダム
-    result["random_problem"]=random_problem()
+    result["random_problem"] = random_problem()
     return templates.TemplateResponse(request ,"result.html" ,result )
 
 
