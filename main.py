@@ -19,8 +19,8 @@ import os
 r = redis.from_url(os.getenv("REDIS_URL"))
 
 
-problems = []
 #問題難易度
+problems = [[] for _ in range(11)]
 def problem():
     global problems
     models = requests.get("https://kenkoooo.com/atcoder/resources/problem-models.json").json()
@@ -30,11 +30,11 @@ def problem():
         tmp_id = {x["id"] for x in problems}
         for id, data in models.items():
             if id not in tmp_id:
-                problems.append({ "id": id, "difficulty": data.get("difficulty") })
+                problems[data.get("difficulty",0)//400].append({ "id": id, "difficulty": data.get("difficulty",0) })
         return problems
 #ランダム
-def random_problem():
-    return random.choice(problem())
+def random_problem(n):
+    return random.choice(problem()[n])
 
 
 # ユーザーのコンテスト履歴を取得
@@ -75,7 +75,7 @@ def analyze(request: Request, user = Form(...)):
     if cached:
         result = json.loads(cached.decode("utf-8"))
         result["cached"] = True
-        result["random_problem"] = random_problem()
+        result["random_problem"] = random_problem(result["rating"]//400)
         return templates.TemplateResponse(request ,"result.html" ,result )
 
     history = fetch_history(user)
@@ -85,7 +85,7 @@ def analyze(request: Request, user = Form(...)):
 
     # レーティング分析
     rating = estimate_rating(history)
-    from_diff,to_diff,color = rating_classify(rating)
+    from_diff, to_diff, color = rating_classify(rating)
 
     url = f"https://kenkoooo.com/atcoder/#/list?fromDiff={from_diff}&toDiff={to_diff}"
     result = {"user": user, "rating": rating, "from_diff": from_diff, "to_diff": to_diff, "url": url ,"color": color}
@@ -96,7 +96,7 @@ def analyze(request: Request, user = Form(...)):
     result["cached"] = False
     
     #ランダム
-    result["random_problem"] = random_problem()
+    result["random_problem"] = random_problem(rating//400)
     return templates.TemplateResponse(request ,"result.html" ,result )
 
 
