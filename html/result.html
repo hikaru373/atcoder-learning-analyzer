@@ -36,7 +36,7 @@
         <a href="{{ url }}" target="_blank" class="button">
             オススメ問題一覧
         </a>
-    <h1><a href="https://atcoder.jp/contests/{{ random_problem.id }}/tasks/{{ random_problem.id }}" target="_blank">おすすめランダム問題 β版（{{ random_problem.id }}:{{ random_problem.difficulty }}）</a></h1>
+        <p><a href="https://atcoder.jp/contests/{{ random_problem.id[:-3] }}/tasks/{{ random_problem.id }}" target="_blank">おすすめランダム問題 β版（問題番号：{{ random_problem.id }}、難易度：{{ random_problem.difficulty }}）</a></p>
     {% endif %}
 
 </div>
