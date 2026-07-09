@@ -24,6 +24,7 @@ ploblems_classify = [[] for _ in range(11)]
 problems = []
 def problem():
     global problems
+    global ploblems_classify
     models = requests.get("https://kenkoooo.com/atcoder/resources/problem-models.json").json()
     if len(problems) == len(models):
         return problems_classify
