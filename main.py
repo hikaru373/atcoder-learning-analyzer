@@ -20,7 +20,7 @@ r = redis.from_url(os.getenv("REDIS_URL"))
 
 
 #問題難易度
-ploblems_classify = [[] for _ in range(11)]
+problems_classify = [[] for _ in range(11)]
 problems = []
 def problem():
     global problems
@@ -34,7 +34,7 @@ def problem():
             if id not in tmp_id:
                 problems.append({ "id": id, "difficulty": data.get("difficulty") })
                 if data.get("difficulty"):
-                    problems_classify[data.get("difficulty")//400].append({ "id": id, "difficulty": data.get("difficulty") })
+                    problems_classify[min(data.get("difficulty")//400,10)].append({ "id": id, "difficulty": data.get("difficulty") })
         return problems_classify
 #ランダム
 def random_problem(n):
@@ -79,7 +79,7 @@ def analyze(request: Request, user = Form(...)):
     if cached:
         result = json.loads(cached.decode("utf-8"))
         result["cached"] = True
-        result["random_problem"] = random_problem(result["rating"]//400)
+        result["random_problem"] = random_problem(min(result["rating"]//400,10))
         return templates.TemplateResponse(request ,"result.html" ,result )
 
     history = fetch_history(user)
@@ -100,7 +100,7 @@ def analyze(request: Request, user = Form(...)):
     result["cached"] = False
     
     #ランダム
-    result["random_problem"] = random_problem(result["rating"]//400)
+    result["random_problem"] = random_problem(min(result["rating"]//400,10))
     return templates.TemplateResponse(request ,"result.html" ,result )
 
 
