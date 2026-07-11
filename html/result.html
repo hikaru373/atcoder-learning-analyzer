@@ -24,7 +24,7 @@
 
         <p class="info">
             推奨Diff:
-            <span><font color="{{ color }}">{{ from_diff }} - {{ to_diff }}</font></span>
+            <span style="color: {{ color }};">{{ from_diff }} - {{ to_diff }}</span>
         </p>
 
         {% if cached %}
@@ -32,11 +32,13 @@
                 Redisキャッシュから取得
             </p>
         {% endif %}
-
+        <a href="https://atcoder.jp/contests/{{ random_problem.id[:-2] }}/tasks/{{ random_problem.id }}" target="_blank" class="random-button">
+    🎲 おすすめランダム問題 β版<br>
+    <small>{{ random_problem.id }} (Diff {{ random_problem.difficulty }})</small>
+</a>
         <a href="{{ url }}" target="_blank" class="button">
             オススメ問題一覧
         </a>
-        <p><a href="https://atcoder.jp/contests/{{ random_problem.id[:-2] }}/tasks/{{ random_problem.id }}" target="_blank">おすすめランダム問題 β版（問題番号：{{ random_problem.id }}、難易度：{{ random_problem.difficulty }}）</a></p>
     {% endif %}
 
 </div>
