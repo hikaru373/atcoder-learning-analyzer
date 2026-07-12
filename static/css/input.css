@@ -74,6 +74,15 @@ button:active {
 
 
 #footer
+footer {
+    margin-top: 60px;
+    padding: 25px 10px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
 .footer-links {
     margin-bottom: 12px;
 }
