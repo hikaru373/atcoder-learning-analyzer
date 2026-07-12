@@ -88,3 +88,30 @@ h1 {
     background:#f8fbff;
     transition:.2s;
 }
+
+
+footer {
+    margin-top: 60px;
+    padding: 25px 10px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+
+#footer
+.footer-links {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #555;
+    text-decoration: none;
+    margin: 0 12px;
+    transition: .2s;
+}
+
+.footer-links a:hover {
+    color: #2563eb;
+}
