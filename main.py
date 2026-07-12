@@ -56,7 +56,7 @@ def estimate_rating(history):
     perf = [h.get("Performance") for h in history if h.get("IsRated")]
     if not perf:
         return 0
-    return sum(perf[-5:]) // min(len(perf), 5)
+    return max(0, sum(perf[-5:]) // min(len(perf), 5))
 
 # レーティング分類
 def rating_classify(rating):
