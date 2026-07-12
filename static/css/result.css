@@ -109,6 +109,7 @@ h1 {
 }
 .random-button.c008000:hover{
     background:#008000;
+    color:white;
 }
 .random-button.c00C0C0{
     border:2px solid #00C0C0;
@@ -116,15 +117,39 @@ h1 {
 }
 .random-button.c00C0C0:hover{
     background:#00C0C0;
+    color:white;
 }
-
-
-.random-button.c{
-    border:2px solid #;
-    color:#;
+.random-button.c0000FF{
+    border:2px solid #0000FF;
+    color:#0000FF;
 }
-.random-button.c:hover{
-    background:#;
+.random-button.c0000FF:hover{
+    background:#0000FF;
+    color:white;
+}
+.random-button.cC0C000{
+    border:2px solid #C0C000;
+    color:#C0C000;
+}
+.random-button.cC0C000:hover{
+    background:#C0C000;
+    color:white;
+}
+.random-button.cFF8000{
+    border:2px solid #FF8000;
+    color:#FF8000;
+}
+.random-button.cFF8000:hover{
+    background:#FF8000;
+    color:white;
+}
+.random-button.cFF0000{
+    border:2px solid #FF0000;
+    color:#FF0000;
+}
+.random-button.cFF0000:hover{
+    background:#FF0000;
+    color:white;
 }
 
 
