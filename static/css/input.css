@@ -70,3 +70,20 @@ button:hover {
 button:active {
     transform: translateY(0);
 }
+
+
+#footer
+.footer-links {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #555;
+    text-decoration: none;
+    margin: 0 12px;
+    transition: .2s;
+}
+
+.footer-links a:hover {
+    color: #2563eb;
+}
