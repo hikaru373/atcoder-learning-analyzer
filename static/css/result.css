@@ -90,6 +90,7 @@ h1 {
 }
 
 
+#footer
 footer {
     margin-top: 60px;
     padding: 25px 10px;
@@ -99,8 +100,6 @@ footer {
     font-size: 14px;
 }
 
-
-#footer
 .footer-links {
     margin-bottom: 12px;
 }
