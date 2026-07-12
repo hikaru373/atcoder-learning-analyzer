@@ -88,8 +88,3 @@ h1 {
     background:#f8fbff;
     transition:.2s;
 }
-
-.random-button:hover{
-    background:#2563eb;
-    color:white;
-}
