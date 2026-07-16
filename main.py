@@ -27,7 +27,7 @@ def problem():
     for id, data in models.items():
         if data.get("difficulty"):
             problems_classify[min(max(data.get("difficulty")//400 ,0), 10)].append({ "id": id, "difficulty": data.get("difficulty") })
-        return problems_classify
+    return problems_classify
 #ランダム
 def random_problem(n):
     return random.choice(problem()[n])
