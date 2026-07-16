@@ -23,6 +23,7 @@ r = redis.from_url(os.getenv("REDIS_URL"))
 problems_classify = [[] for _ in range(11)]
 def problem():
     global problems_classify
+    problems_classify = [[] for _ in range(11)]
     models = requests.get("https://kenkoooo.com/atcoder/resources/problem-models.json").json()
     for id, data in models.items():
         if data.get("difficulty"):
