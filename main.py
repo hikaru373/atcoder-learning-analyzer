@@ -29,7 +29,7 @@ def problem():
         problems_classify = [[] for _ in range(11)]
         models = requests.get("https://kenkoooo.com/atcoder/resources/problem-models.json").json()
         for id, data in models.items():
-            if data.get("difficulty"):
+            if data.get("difficulty") is not None:
                 problems_classify[min(max(data.get("difficulty")//400 ,0), 10)].append({ "id": id, "difficulty": data.get("difficulty") })
         r.set("problems_classify", json.dumps(problems_classify), ex=86400)
         return problems_classify
@@ -99,7 +99,3 @@ def analyze(request: Request, user = Form(...)):
     #ランダム
     result["random_problem"] = random_problem(min(result["rating"]//400,10))
     return templates.TemplateResponse(request ,"result.html" ,result )
-
-
-
-
