@@ -21,20 +21,12 @@ r = redis.from_url(os.getenv("REDIS_URL"))
 
 #問題難易度
 problems_classify = [[] for _ in range(11)]
-problems = []
 def problem():
-    global problems
     global problems_classify
     models = requests.get("https://kenkoooo.com/atcoder/resources/problem-models.json").json()
-    if len(problems) == len(models):
-        return problems_classify
-    else:
-        tmp_id = {x["id"] for x in problems}
-        for id, data in models.items():
-            if id not in tmp_id:
-                problems.append({ "id": id, "difficulty": data.get("difficulty") })
-                if data.get("difficulty"):
-                    problems_classify[min(max(data.get("difficulty")//400 ,0), 10)].append({ "id": id, "difficulty": data.get("difficulty") })
+    for id, data in models.items():
+        if data.get("difficulty"):
+            problems_classify[min(max(data.get("difficulty")//400 ,0), 10)].append({ "id": id, "difficulty": data.get("difficulty") })
         return problems_classify
 #ランダム
 def random_problem(n):
