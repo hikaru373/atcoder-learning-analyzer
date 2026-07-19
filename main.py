@@ -99,3 +99,10 @@ def analyze(request: Request, user = Form(...)):
     #ランダム
     result["random_problem"] = random_problem(min(result["rating"]//400,10))
     return templates.TemplateResponse(request ,"result.html" ,result )
+
+
+
+#footer
+@app.get("/about", response_class = HTMLResponse)
+def about(request: Request):
+    return templates.TemplateResponse("about.html", {"request": request})
