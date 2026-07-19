@@ -105,4 +105,4 @@ def analyze(request: Request, user = Form(...)):
 #footer
 @app.get("/about", response_class = HTMLResponse)
 def about(request: Request):
-    return templates.TemplateResponse("about.html", {"request": request})
+    return templates.TemplateResponse(request ,"about.html" )
