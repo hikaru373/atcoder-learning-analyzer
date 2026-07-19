@@ -5,9 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>このサイトについて</title>
     <link rel="icon" href="/static/images/logo_input.ico">
+    <link rel="stylesheet" href="/static/css/about.css">
 </head>
 <body>
-    
+
+<div class="container">
+
+    <h1>このサイトについて</h1>
+
+    <section>
+        <h2>概要</h2>
+        <p>
+            このWebアプリは、AtCoderのユーザー名を入力すると、過去のコンテスト結果から現在の実力を推定し、そのレベルに適した問題を表示する競技プログラミング学習支援ツールです。
+        </p>
+    </section>
+
+    <section>
+        <h2>よくある質問（Q&A）</h2>
+
+        <details>
+            <summary>推定レーティングとは何ですか？</summary>
+            <p>
+                現在の実力を把握するため、直近5回のRatedコンテストのPerformanceの平均値を「推定レーティング」としています。
+            </p>
+        </details>
+
+        <details>
+            <summary>推奨問題はどのように選ばれますか？</summary>
+            <p>
+                AtCoder Problemsの問題データをもとに、推定レーティングと同じ色から問題を表示しています。
+            </p>
+        </details>
+
+        <details>
+            <summary>推定レーティングが0になることがあります。</summary>
+            <p>
+                AtCoderではPerformanceが負になる場合があります。そのため、平均値が0以下となり、推定レーティングが0と表示されることがあります。
+            </p>
+        </details>
+
+        <details>
+            <summary>データはいつ更新されますか？</summary>
+            <p>
+                キャッシュを利用しているため、推定レーティング・問題データの更新には最大24時間かかる場合があります。
+            </p>
+        </details>
+
+        <details>
+            <summary>AtCoderの公式サービスですか？</summary>
+            <p>
+                いいえ。本サイトは個人が開発・運営している非公式サービスです。
+            </p>
+        </details>
+
+    </section>
+
+</div>
+    <footer>
+        <div class="footer-links">
+            <a href="/about">このサイトについて</a>
+            <!--サイトの目的、使用技術、推定レートについて、使い方-->
+            <a href="https://hikaru373.github.io/portfolio/" target="_blank">製作者</a>
+            <a href="https://github.com/hikaru373/atcoder-learning-analyzer" target="_blank">GitHub</a>
+            <a href="https://forms.gle/PiDUpJXJmxxBMm5K7" target="_blank">お問い合わせ</a>
+        </div>
     <p>© 2026 AtCoder Learning Analyzer</p>
     </footer>
 </body>
