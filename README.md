@@ -63,3 +63,12 @@ atcoder-learning-analyzer
 + Jinja2
 + Render
 + Redis
+<br><br><br>
+# ⑦ 終わりに
+最後までご覧いただき、ありがとうございました。<br>
+このアプリが競技プログラミングの上達に少しでも役立てば嬉しいです。<br>
+バグ報告や機能要望などがありましたら、お気軽にご連絡ください。
+<br>
+- [お問い合わせフォーム](https://forms.gle/PiDUpJXJmxxBMm5K7)
+- [GitHub Issues](https://github.com/hikaru373/atcoder-learning-analyzer/issues)
+- [メール](mailto:star3.14wars.sh@gmail.com)
