@@ -7,7 +7,7 @@
 6. 使用技術
 <br><br><br>
 # ① 概要
-![analyzer_png](https://github.com/user-attachments/assets/a99e61ff-5c27-4cb9-8672-1e0345101735.png)
+![analyzer_png](https://github-production-user-asset-6210df.s3.amazonaws.com/292798176/623755890-a99e61ff-5c27-4cb9-8672-1e0345101735.png)
 <br>
 AtCoderのユーザー名を入力すると、過去のコンテスト結果から推定レーティングを算出し、現在の実力に適した問題をランダムに表示します。また、推定された難易度帯の問題一覧ページへ直接アクセスできるため、効率的な競技プログラミング学習を支援します。<br>
 本サイトの利用により発生した損害や不利益について、開発者は一切の責任を負いません。あらかじめご了承ください。
