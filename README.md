@@ -7,7 +7,7 @@
 6. 使用技術
 <br><br><br>
 # ① 概要
-<img width="431" height="458" alt="Image" src="https://github.com/user-attachments/assets/a99e61ff-5c27-4cb9-8672-1e0345101735"/>
+![analyzer_png]（https://github.com/user-attachments/assets/a99e61ff-5c27-4cb9-8672-1e0345101735.png）
 <br>
 AtCoderのユーザー名を入力すると、過去のコンテスト結果から推定レーティングを算出し、現在の実力に適した問題をランダムに表示します。また、推定された難易度帯の問題一覧ページへ直接アクセスできるため、効率的な競技プログラミング学習を支援します。<br>
 本サイトの利用により発生した損害や不利益について、開発者は一切の責任を負いません。あらかじめご了承ください。
