@@ -67,7 +67,7 @@ atcoder-learning-analyzer
 # ⑦ 終わりに
 最後までご覧いただき、ありがとうございました。<br>
 このアプリが競技プログラミングの上達に少しでも役立てば嬉しいです。<br>
-バグ報告や機能要望などがありましたら、お気軽にご連絡ください。
+バグ報告や機能要望などがございましたら、以下よりお気軽にご連絡ください。
 <br>
 - [お問い合わせフォーム](https://forms.gle/PiDUpJXJmxxBMm5K7)
 - [GitHub Issues](https://github.com/hikaru373/atcoder-learning-analyzer/issues)
