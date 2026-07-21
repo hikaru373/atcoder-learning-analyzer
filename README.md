@@ -22,7 +22,8 @@ AtCoderのユーザー名を入力すると、過去のコンテスト結果か�
 <br><br><br>
 # ③ 使い方
 [こちらのサイトから](https://atcoder-learning-analyzer.onrender.com)<br>
-AtCoderのユーザー名を入力し、スタートボタンを押す。
+<video src="https://github.com/user-attachments/assets/55353321-fbb7-4cf4-aec2-03c45b0e98cc" controls width="100%">
+</video>
 <br><br><br>
 # ④ セットアップ手順
 ### 1. リポジトリのクローン<br>
