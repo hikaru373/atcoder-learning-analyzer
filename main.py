@@ -72,7 +72,7 @@ def home(request: Request):
 @app.post("/analyze")
 def analyze(request: Request, user = Form(...)):
     # Redisに存在するか
-    cached = r.get(user)
+    cached = r.get(f"user:{user}")
     if cached:
         result = json.loads(cached.decode("utf-8"))
         result["cached"] = True
@@ -92,7 +92,7 @@ def analyze(request: Request, user = Form(...)):
     result = {"user": user, "rating": rating, "from_diff": from_diff, "to_diff": to_diff, "url": url ,"color": color}
     
     # Redisに保存（期限：1日）
-    r.set(user, json.dumps(result), ex=60)
+    r.set(f"user:{user}", json.dumps(result), ex=60)
 
     result["cached"] = False
     
