@@ -57,7 +57,7 @@ def estimate_rating(history):
 
 # レーティング分類
 def rating_classify(rating):
-    color=["#808080","#804000","#008000","#00C0C0","#0000FF","#C0C000","#FF8000","#FF0000"]
+    color=["#808080", "#804000", "#008000", "#00C0C0", "#0000FF", "#C0C000", "#FF8000", "#FF0000", "#FF0000"]
     if rating>=3600:
         return 3600,3999,color[-1]
     else:
