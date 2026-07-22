@@ -5,6 +5,7 @@
 4. セットアップ手順
 5. ディレクトリ構成
 6. 使用技術
+7. 終わりに
 <br><br><br>
 # ① 概要
 ![結果画面](https://github.com/user-attachments/assets/7eb4ee36-887d-4d18-b246-db4dae84e190)
