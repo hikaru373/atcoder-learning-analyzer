@@ -100,6 +100,11 @@ def analyze(request: Request, user = Form(...)):
     result["random_problem"] = random_problem(min(result["rating"]//400,10))
     return templates.TemplateResponse(request ,"result.html" ,result )
 
+#ランダム更新
+@app.get("/random")
+def random_reload(rating: int):
+    newProblem = random_problem(min(rating // 400, 10))
+    return {"random_problem": newProblem}
 
 
 #footer_このサイトについて
