@@ -87,7 +87,7 @@ h1 {
     transition:.2s;
 }
 
-.random-button.c808080{
+.random-button.c808080, .reload-button.c808080{
     border:2px solid #808080;
     color:#808080;
 }
@@ -95,7 +95,7 @@ h1 {
     background:#808080;
     color:white;
 }
-.random-button.c804000{
+.random-button.c804000, .reload-button.c804000{
     border:2px solid #804000;
     color:#804000;
 }
@@ -103,7 +103,7 @@ h1 {
     background:#804000;
     color:white;
 }
-.random-button.c008000{
+.random-button.c008000, .reload-button.c008000{
     border:2px solid #008000;
     color:#008000;
 }
@@ -111,7 +111,7 @@ h1 {
     background:#008000;
     color:white;
 }
-.random-button.c00C0C0{
+.random-button.c00C0C0, .reload-button.c00C0C0{
     border:2px solid #00C0C0;
     color:#00C0C0;
 }
@@ -119,7 +119,7 @@ h1 {
     background:#00C0C0;
     color:white;
 }
-.random-button.c0000FF{
+.random-button.c0000FF, .reload-button.c0000FF{
     border:2px solid #0000FF;
     color:#0000FF;
 }
@@ -127,7 +127,7 @@ h1 {
     background:#0000FF;
     color:white;
 }
-.random-button.cC0C000{
+.random-button.cC0C000, .reload-button.cC0C000{
     border:2px solid #C0C000;
     color:#C0C000;
 }
@@ -135,7 +135,7 @@ h1 {
     background:#C0C000;
     color:white;
 }
-.random-button.cFF8000{
+.random-button.cFF8000, .reload-button.cFF8000{
     border:2px solid #FF8000;
     color:#FF8000;
 }
@@ -143,7 +143,7 @@ h1 {
     background:#FF8000;
     color:white;
 }
-.random-button.cFF0000{
+.random-button.cFF0000, .reload-button.cFF0000{
     border:2px solid #FF0000;
     color:#FF0000;
 }
@@ -153,32 +153,32 @@ h1 {
 }
 
 /* 更新ボタン */
+.reload-area{
+    display:flex;
+    justify-content:center;
+    margin-top:16px;
+}
+
 .reload-button{
     display:flex;
     align-items:center;
     justify-content:center;
     gap:12px;
-    margin-top: 16px;
     padding:12px 28px;
-
     border:none;
     border-radius:999px;
-
-    background:linear-gradient(135deg,#5b8cff,#3d6df5);
     color:white;
-
     font-size:16px;
     font-weight:700;
-
     cursor:pointer;
-
     transition:.25s;
-    box-shadow:0 8px 20px rgba(61,109,245,.25);
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
+
 
 .reload-button:hover{
     transform:translateY(-3px);
-    box-shadow:0 12px 28px rgba(61,109,245,.35);
+    box-shadow:0 12px 28px rgba(0, 0, 0, 0.35);
 }
 
 .reload-button:active{
@@ -197,31 +197,24 @@ h1 {
 }
 
 @keyframes diceRoll{
-
     0%{
         transform:rotate(0deg) scale(1);
     }
-
     20%{
         transform:rotate(180deg) scale(1.3);
     }
-
     40%{
         transform:rotate(360deg);
     }
-
     60%{
         transform:rotate(540deg) scale(.9);
     }
-
     80%{
         transform:rotate(720deg);
     }
-
     100%{
         transform:rotate(900deg) scale(1);
     }
-
 }
 
 
