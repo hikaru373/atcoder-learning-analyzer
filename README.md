@@ -61,12 +61,12 @@ atcoder-learning-analyzer
 </pre>
 <br><br><br>
 # ⑥ 使用技術
-+ Python
-+ FastAPI
-+ HTML/CSS
-+ Jinja2
-+ Render
-+ Redis
++ フロントエンド：HTML、CSS
++ バックエンド：Python、FastAPI、Jinja2
++ データベース：Redis
++ インフラ：Render
++ バージョン管理：Git、GitHub
++ 動作確認環境環境：macOS 15.6
 <br><br><br>
 # ⑦ 終わりに
 最後までご覧いただき、ありがとうございました。<br>
