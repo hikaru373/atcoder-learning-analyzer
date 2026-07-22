@@ -160,12 +160,26 @@ h1 {
 }
 
 .reload-button {
-    height: 60px;
-    padding: 0 20px;
+    width: 54px;
+    height: 54px;
     border: none;
-    border-radius: 10px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    color: #555;
+    font-size: 28px;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 16px;
+    transition: .2s;
+}
+
+.reload-button:hover {
+    background: #4285f4;
+    color: white;
+    transform: rotate(180deg);
+}
+
+.reload-button:active {
+    transform: scale(0.9) rotate(180deg);
 }
 
 
