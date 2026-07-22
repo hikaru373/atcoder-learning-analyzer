@@ -194,7 +194,7 @@ h1 {
 /* 回転 */
 
 .dice.roll{
-    animation:diceRoll .8s ease;
+    animation:diceRoll 1s ease;
 }
 
 @keyframes diceRoll{
