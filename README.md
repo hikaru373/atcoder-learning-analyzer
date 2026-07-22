@@ -61,12 +61,17 @@ atcoder-learning-analyzer
 </pre>
 <br><br><br>
 # ⑥ 使用技術
-+ フロントエンド：HTML、CSS
-+ バックエンド：Python、FastAPI、Jinja2
-+ データベース：Redis
-+ インフラ：Render
-+ バージョン管理：Git、GitHub
-+ 動作確認環境環境：macOS 15.6
++ **フロントエンド**：HTML、CSS
++ **バックエンド**：Python、FastAPI、Jinja2
++ **データベース**：Redis
++ **インフラ**：Render
++ **バージョン管理**：Git、GitHub
++ **動作確認環境環境**：macOS 15.6
+
+### 選定理由
++ **FastAPI**：APIの実装がシンプルで、処理性能が高く、高速なWebアプリケーションを開発できるため。
++ **Redis**：キャッシュを利用して処理を高速化し、外部APIへのアクセス回数を削減するため。また、データは毎日更新される一方で、データ量はそこまで多くないため、有効期限の管理がしやすいRedisを採用した。
+
 <br><br><br>
 # ⑦ 終わりに
 最後までご覧いただき、ありがとうございました。<br>
