@@ -31,7 +31,7 @@
             <a href="https://atcoder.jp/contests/{{ random_problem.id[:-2] }}/tasks/{{ random_problem.id }}" target="_blank" class="random-button c{{ color[1:] }}" id="random-link">🎲 おすすめランダム問題 β版<br>
                 <small id="problemID_reload">{{ random_problem.id }} (Diff {{ random_problem.difficulty }})</small>
             </a>
-            <button onclick="reloadRandom()">🔄</button>
+            <button onclick="reloadRandom()">↻</button>
         </div>
         
         <br>
@@ -52,22 +52,16 @@
     </footer>
 
     <script>
-
-const rating = {{ rating }};
-async function reloadRandom() {
-    const res = await fetch(`/random?rating=${rating}`);
-    const data = await res.json();
-
-    const p = data.random_problem;
-
-    const link = document.getElementById("random-link");
-    const problemID_reload = document.getElementById("problemID_reload");
-
-    link.href =
-      `https://atcoder.jp/contests/${p.id.slice(0,-2)}/tasks/${p.id}`;
-
-    problemID_reload.innerHTML = `${p.id} (Diff ${p.difficulty})`;
-}
-</script>
+        const rating = {{ rating }};
+        async function reloadRandom() {
+            const res = await fetch(`/random?rating=${rating}`);
+            const data = await res.json();
+            const p = data.random_problem;
+            const link = document.getElementById("random-link");
+            const problemID_reload = document.getElementById("problemID_reload");
+            link.href =`https://atcoder.jp/contests/${p.id.slice(0,-2)}/tasks/${p.id}`;
+            problemID_reload.innerHTML = `${p.id} (Diff ${p.difficulty})`;
+        }
+    </script>
 </body>
 </html>
