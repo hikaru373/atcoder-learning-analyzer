@@ -28,7 +28,7 @@
             <span style="color: {{ color }};">{{ from_diff }} - {{ to_diff }}</span>
         </p>
         <div class="random-area">
-            <a href="https://atcoder.jp/contests/{{ random_problem.id[:-2] }}/tasks/{{ random_problem.id }}" target="_blank" class="random-button c{{ color[1:] }}">🎲 おすすめランダム問題 β版<br>
+            <a href="https://atcoder.jp/contests/{{ random_problem.id[:-2] }}/tasks/{{ random_problem.id }}" target="_blank" class="random-button c{{ color[1:] }}" id="random-link">🎲 おすすめランダム問題 β版<br>
                 <small>{{ random_problem.id }} (Diff {{ random_problem.difficulty }})</small>
             </a>
             <button onclick="reloadRandom()">🔄</button>
@@ -52,8 +52,8 @@
     </footer>
 
     <script>
-const rating = {{ rating }};
 
+const rating = {{ rating }};
 async function reloadRandom() {
     const res = await fetch(`/random?rating=${rating}`);
     const data = await res.json();
