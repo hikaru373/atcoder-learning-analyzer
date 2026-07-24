@@ -5,8 +5,9 @@
 4. 使い方
 5. セットアップ手順
 6. ディレクトリ構成
-7. 使用技術
-8. 終わりに
+7. データ構造
+8. 使用技術
+9. 終わりに
 <br><br><br>
 # ① 概要
 ![結果画面](https://github.com/user-attachments/assets/7eb4ee36-887d-4d18-b246-db4dae84e190)
@@ -64,7 +65,11 @@ atcoder-learning-analyzer
     └── images
 </pre>
 <br><br><br>
-# ⑦ 使用技術
+# ⑦ データ構造
+Redisのキャッシュ構造です。（TTL：24時間）
+![データ構造](https://github.com/user-attachments/assets/74a7fc6a-7c83-4d6b-9efa-7676f9756a3d)
+<br><br><br>
+# ⑧ 使用技術
 + **フロントエンド**：HTML、CSS
 + **バックエンド**：Python、FastAPI、Jinja2
 + **データベース**：Redis
@@ -77,7 +82,7 @@ atcoder-learning-analyzer
 + **Redis**：キャッシュを利用して処理を高速化し、外部APIへのアクセス回数を削減するため。また、データは毎日更新される一方で、データ量はそこまで多くないため、有効期限の管理がしやすいRedisを採用した。
 
 <br><br><br>
-# ⑧ 終わりに
+# ⑨ 終わりに
 最後までご覧いただき、ありがとうございました。<br>
 このアプリが競技プログラミングの上達に少しでも役立てば嬉しいです。<br>
 バグ報告や機能要望などがございましたら、以下よりお気軽にご連絡ください。
