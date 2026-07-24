@@ -88,8 +88,7 @@ def analyze(request: Request, user = Form(...)):
     rating = estimate_rating(history)
     from_diff,to_diff,color = rating_classify(rating)
 
-    url = f"https://kenkoooo.com/atcoder/#/list?fromDiff={from_diff}&toDiff={to_diff}"
-    result = {"user": user, "rating": rating, "from_diff": from_diff, "to_diff": to_diff, "url": url ,"color": color}
+    result = {"user": user, "rating": rating, "from_diff": from_diff, "to_diff": to_diff, "color": color}
     
     # Redisに保存（期限：1日）
     r.set(f"user:{user}", json.dumps(result), ex=60)
