@@ -75,7 +75,6 @@ def analyze(request: Request, user = Form(...)):
     cached = r.get(f"user:{user}")
     if cached:
         result = json.loads(cached.decode("utf-8"))
-        result["cached"] = True
         result["random_problem"] = random_problem(min(result["rating"]//400,10))
         return templates.TemplateResponse(request ,"result.html" ,result )
 
@@ -92,8 +91,6 @@ def analyze(request: Request, user = Form(...)):
     
     # Redisに保存（期限：1日）
     r.set(f"user:{user}", json.dumps(result), ex=60)
-
-    result["cached"] = False
     
     #ランダム
     result["random_problem"] = random_problem(min(result["rating"]//400,10))
