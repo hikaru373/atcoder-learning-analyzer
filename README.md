@@ -54,6 +54,7 @@ uvicorn main:app --reload
 <br><br>
 # ⑥ ディレクトリ構成
 <pre>
+test
 atcoder-learning-analyzer
 ├── main.py
 ├── requirements.txt
