@@ -54,16 +54,22 @@ uvicorn main:app --reload
 <br><br>
 # ⑥ ディレクトリ構成
 <pre>
-test
 atcoder-learning-analyzer
 ├── main.py
 ├── requirements.txt
 ├── README.md
 ├── html
 │    ├── input.html
-│    └── result.html
-└── static
-    └── images
+│    ├── result.html
+│    └── about.html
+├── static
+│    ├── images
+│    │    └──logo_input.ico
+│    └── css
+│         ├── input.css
+│         ├── result.css
+│         └── about.css
+└── TEST.md
 </pre>
 <br><br><br>
 # ⑦ データ構造
