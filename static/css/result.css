@@ -60,9 +60,10 @@ h1 {
 
 /* random */
 .random-button{
+    font-size: 17px;
     display:block;
-    margin:20px 0;
-    padding:15px;
+    margin:20px;
+    padding:10px;
     border-radius:10px;
     background:white;
     transition:.2s;
@@ -145,7 +146,7 @@ h1 {
     align-items:center;
     justify-content:center;
     gap:12px;
-    padding:12px 28px;
+    padding:5px 15px;
     border:none;
     border-radius:999px;
     color:white;
