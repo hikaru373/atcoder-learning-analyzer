@@ -90,7 +90,7 @@ def analyze(request: Request, user = Form(...)):
     result = {"user": user, "rating": rating, "from_diff": from_diff, "to_diff": to_diff, "color": color}
     
     # Redisに保存（期限：1日）
-    r.set(f"user:{user}", json.dumps(result), ex=60)
+    r.set(f"user:{user}", json.dumps(result), ex=60) ###
     
     #ランダム
     result["random_problem"] = random_problem(min(result["rating"]//400,10))

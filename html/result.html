@@ -23,24 +23,20 @@
             <span style="color: {{ color }};">{{ rating }}</span>
         </p>
 
-        <p class="info">
-            推奨Diff:
-            <span style="color: {{ color }};">{{ from_diff }} - {{ to_diff }}</span>
-        </p>
-            <a href="https://atcoder.jp/contests/{{ random_problem.id[:-2] }}/tasks/{{ random_problem.id }}" target="_blank" class="random-button c{{ color[1:] }}" id="random-link">🎲 おすすめランダム問題 β版<br>
-                <small id="problemID_reload">{{ random_problem.id }} (Diff {{ random_problem.difficulty }})</small>
-            </a>
+        <a href="https://kenkoooo.com/atcoder/#/list?fromDiff={{ from_diff }}&toDiff={{ to_diff }}" target="_blank">
+            <p class="info">
+                推奨Diff:<span style="color: {{ color }};">{{ from_diff }} - {{ to_diff }}</span>
+            </p>
+        </a>
+        <a href="https://atcoder.jp/contests/{{ random_problem.id[:-2] }}/tasks/{{ random_problem.id }}" target="_blank" class="random-button c{{ color[1:] }}" id="random-link">🎲 おすすめランダム問題 β版<br>
+            <small id="problemID_reload">{{ random_problem.id }} (Diff {{ random_problem.difficulty }})</small>
+        </a>
         <div class="reload-area">
             <button class="reload-button" onclick="reloadRandom(this)">
                 <span class="dice">🎲</span>
                 <span class="reload-text">別の問題を引く</span>
             </button>
         </div>
-        
-        <br>
-        <a href="https://kenkoooo.com/atcoder/#/list?fromDiff={{ from_diff }}&toDiff={{ to_diff }}" target="_blank" class="button">
-            オススメ問題一覧
-        </a>
     {% endif %}
 </div>
 
