@@ -62,8 +62,8 @@ h1 {
 .random-button{
     font-size: 17px;
     display:block;
-    margin:20px;
-    padding:10px;
+    margin:20px 0;
+    padding:15px;
     border-radius:10px;
     background:white;
     transition:.2s;
