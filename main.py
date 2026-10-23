@@ -7,7 +7,7 @@ import json
 import random
 
 app = FastAPI()
-templates = Jinja2Templates(directory="html")
+templates = Jinja2Templates(directory="frontend/html")
 
 # HTML
 from fastapi.staticfiles import StaticFiles
