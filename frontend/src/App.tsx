@@ -1,5 +1,7 @@
+import About from './pages/About.tsx'
+
 function App() {
-  return <h1>Hello World</h1>
+  return <About />
 }
 
 export default App
