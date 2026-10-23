@@ -5,13 +5,16 @@ import requests
 import redis
 import json
 import random
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 app = FastAPI()
-templates = Jinja2Templates(directory="frontend/html")
+templates = Jinja2Templates(directory=BASE_DIR / "frontend" / "html")
 
 # HTML
 from fastapi.staticfiles import StaticFiles
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 
 
 # Redis
