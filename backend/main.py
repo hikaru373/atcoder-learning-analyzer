@@ -1,17 +1,24 @@
 from fastapi import FastAPI, Request, Form
-from fastapi.responses import HTMLResponse
+from fastapi.responses import FileResponse
 from fastapi.templating import Jinja2Templates
 import requests
 import redis
 import json
 import random
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 app = FastAPI()
-templates = Jinja2Templates(directory="html")
+templates = Jinja2Templates(directory=BASE_DIR / "frontend" / "html")
 
 # HTML
 from fastapi.staticfiles import StaticFiles
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
+
+# React（npm run build で生成される frontend/dist を配信）
+DIST_DIR = BASE_DIR / "frontend" / "dist"
+app.mount("/assets", StaticFiles(directory=DIST_DIR / "assets", check_dir=False), name="assets")
 
 
 # Redis
@@ -104,6 +111,10 @@ def random_reload(rating: int):
 
 
 #footer_このサイトについて
-@app.get("/about", response_class = HTMLResponse)
-def about(request: Request):
-    return templates.TemplateResponse(request ,"about.html" )
+@app.get("/about")
+def about():
+    return FileResponse(DIST_DIR / "index.html")
+
+@app.get("/favicon.ico")
+def favicon():
+    return FileResponse(DIST_DIR / "favicon.ico")

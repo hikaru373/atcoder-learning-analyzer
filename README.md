@@ -41,7 +41,10 @@ cd atcoder-learning-analyzer
 ```
 ### 2. 必要ライブラリのインストール<br>
 ```
-pip install -r requirements.txt
+pip install -r backend/requirements.txt
+```
+```
+cd frontend && npm install && npm run build && cd ..
 ```
 ### 3.環境変数の設定<br>
 ```
@@ -49,19 +52,27 @@ export REDIS_URL=redis://localhost:6379
 ```
 ### 4.サーバー起動<br>
 ```
-uvicorn main:app --reload
+uvicorn backend.main:app --reload
 ```
 <br><br>
 # ⑥ ディレクトリ構成
 <pre>
 atcoder-learning-analyzer
-├── main.py
-├── requirements.txt
 ├── README.md
-├── html
-│    ├── input.html
-│    ├── result.html
-│    └── about.html
+├── backend
+│    ├── main.py
+│    └── requirements.txt
+├── frontend
+│    ├── html
+│    │    ├── input.html
+│    │    ├── result.html
+│    │    └── about.html
+│    ├── src
+│    │    ├── App.tsx
+│    │    └── main.tsx
+│    ├── index.html
+│    ├── package.json
+│    └── vite.config.ts
 ├── static
 │    ├── images
 │    │    └──logo_input.ico
