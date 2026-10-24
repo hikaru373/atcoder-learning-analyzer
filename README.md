@@ -43,6 +43,9 @@ cd atcoder-learning-analyzer
 ```
 pip install -r backend/requirements.txt
 ```
+```
+cd frontend && npm install && npm run build && cd ..
+```
 ### 3.環境変数の設定<br>
 ```
 export REDIS_URL=redis://localhost:6379
