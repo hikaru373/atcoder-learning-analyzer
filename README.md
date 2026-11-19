@@ -88,7 +88,7 @@ Redisのキャッシュ構造です。（TTL：24時間）
 ![データ構造](https://github.com/user-attachments/assets/74a7fc6a-7c83-4d6b-9efa-7676f9756a3d)
 <br><br><br>
 # ⑧ 使用技術
-+ **フロントエンド**：HTML、CSS
++ **フロントエンド**：HTML、CSS、TypeScript、React、Vite
 + **バックエンド**：Python、FastAPI、Jinja2
 + **データベース**：Redis
 + **インフラ**：Render
@@ -96,6 +96,7 @@ Redisのキャッシュ構造です。（TTL：24時間）
 + **動作確認環境**：macOS 15.6
 
 ### 選定理由
++ **React**：画面をコンポーネント単位で分けて、コードを管理しやすくするため。
 + **FastAPI**：APIの実装がシンプルで、処理性能が高く、高速なWebアプリケーションを開発できるため。
 + **Redis**：キャッシュを利用して処理を高速化し、外部APIへのアクセス回数を削減するため。また、データは毎日更新される一方で、データ量はそこまで多くないため、有効期限の管理がしやすいRedisを採用した。
 
