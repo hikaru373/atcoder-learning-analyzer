@@ -28,7 +28,7 @@ AtCoderのユーザー名を入力すると、過去のコンテスト結果か�
 <br><br><br>
 # ④ 使い方
 [こちらのサイトから](https://atcoder-learning-analyzer.onrender.com)<br>
-<video src="https://github.com/user-attachments/assets/dd368e3f-2245-47f5-96ca-65491a3df0eb" controls width="100%">
+<video src="https://github.com/user-attachments/assets/64e5ddb2-246d-40b9-b859-f749a152d8b5" controls width="100%">
 </video>
 <br><br><br>
 # ⑤ セットアップ手順
