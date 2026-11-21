@@ -57,7 +57,8 @@ def fetch_history(user):
 def estimate_rating(history):
     if not history:
         return 0
-    perf = [h.get("Performance") for h in history if h.get("IsRated")]
+    # 上限（ABCは2400など）で切られる前の値を使う
+    perf = [h.get("InnerPerformance") for h in history if h.get("IsRated")]
     if not perf:
         return 0
     return max(0, sum(perf[-5:]) // min(len(perf), 5))
