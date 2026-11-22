@@ -55,8 +55,8 @@ def fetch_history(user):
     return res.json()
 
 # レーティング推定
-RECENT_CONTESTS = 6   # 直近何回のRatedコンテストを使うか
-STRONG_CONTESTS = 3    # 直近何回を強く見るか（この回数の次の回で重みが半分になる）
+RECENT_CONTESTS = 8   # 直近何回のRatedコンテストを使うか
+STRONG_CONTESTS = 4    # 直近何回を強く見るか（この回数の次の回で重みが半分になる）
 DECAY_POWER = 4        # 強く見る回数を超えたあとの落ち方の急さ（大きいほど急）
 SLOW_YEARS = 2         # この年数までは弱めに割り引く
 SLOW_RATE = 0.05       # SLOW_YEARS 年の時点での割引率
@@ -84,8 +84,10 @@ def estimate_rating(history):
     total = 0
     weight_sum = 0
     for i, h in enumerate(reversed(recent)):
-        # 新しい方からi回目の重みを 1 / (1 + i/DECAY_SCALE)^2 にする
-        weight = 1 / (1 + i / DECAY_SCALE) ** 2
+        # 新しい方からi回目の重みを 1 / (1 + (i/STRONG_CONTESTS)^DECAY_POWER) にする
+        # 直近 STRONG_CONTESTS 回はほぼ同じ強さで、その次の回で0.5、その後は急に小さくなる
+        weight = 1 / (1 + (i / STRONG_CONTESTS) ** DECAY_POWER)
+        
         # 上限（ABCは2400など）で切られる前の値を使う
         perf = h["InnerPerformance"]
         # そのコンテストからの年数で割り引く
