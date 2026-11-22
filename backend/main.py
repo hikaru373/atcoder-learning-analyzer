@@ -56,7 +56,21 @@ def fetch_history(user):
 
 # レーティング推定
 RECENT_CONTESTS = 6   # 直近何回のRatedコンテストを使うか
-DECAY_SCALE = 5        # 重みの減衰の緩さ（小さいほど新しい回を重く見る）
+STRONG_CONTESTS = 3    # 直近何回を強く見るか（この回数の次の回で重みが半分になる）
+DECAY_POWER = 4        # 強く見る回数を超えたあとの落ち方の急さ（大きいほど急）
+SLOW_YEARS = 2         # この年数までは弱めに割り引く
+SLOW_RATE = 0.05       # SLOW_YEARS 年の時点での割引率
+FAST_RATE = 0.10       # SLOW_YEARS 年以降、1年あたりに増やす割引率
+MAX_RATE = 0.15        # 割引率の上限（3年で達する）
+
+# 最後に参加してからの年数に応じた割引率
+def discount_rate(years):
+    if years <= SLOW_YEARS:
+        # (t / SLOW_YEARS)^2 の形で、最初はほとんど引かず、SLOW_YEARS 年に近づくほど増やす
+        # SLOW_YEARS 年でちょうど SLOW_RATE になる
+        return SLOW_RATE * (years / SLOW_YEARS) ** 2
+    # SLOW_YEARS 年以降は1年あたり FAST_RATE ずつ増やし、MAX_RATE で止める
+    return min(MAX_RATE, SLOW_RATE + FAST_RATE * (years - SLOW_YEARS))
 
 def estimate_rating(history):
     if not history:
@@ -66,13 +80,19 @@ def estimate_rating(history):
         return 0
     recent = rated[-RECENT_CONTESTS:]   # RECENT_CONTESTS 回に満たない場合はある分だけ
 
+    now = datetime.now(timezone.utc)
     total = 0
     weight_sum = 0
     for i, h in enumerate(reversed(recent)):
         # 新しい方からi回目の重みを 1 / (1 + i/DECAY_SCALE)^2 にする
         weight = 1 / (1 + i / DECAY_SCALE) ** 2
         # 上限（ABCは2400など）で切られる前の値を使う
-        total += h["InnerPerformance"] * weight
+        perf = h["InnerPerformance"]
+        # そのコンテストからの年数で割り引く
+        # 絶対値 × 割引率 を引くので、負のパフォーマンスでも下がる方向に効く
+        days = (now - datetime.fromisoformat(h["EndTime"])).days
+        perf -= abs(perf) * discount_rate(days / 365)
+        total += perf * weight
         weight_sum += weight
     return max(0, int(total / weight_sum))
 
