@@ -54,6 +54,8 @@ def fetch_history(user):
     return res.json()
 
 # レーティング推定
+RECENT_CONTESTS = 10   # 直近何回のRatedコンテストを使うか
+
 def estimate_rating(history):
     if not history:
         return 0
@@ -61,7 +63,8 @@ def estimate_rating(history):
     perf = [h.get("InnerPerformance") for h in history if h.get("IsRated")]
     if not perf:
         return 0
-    return max(0, sum(perf[-5:]) // min(len(perf), 5))
+    recent = perf[-RECENT_CONTESTS:]   # 10回に満たない場合はある分だけ
+    return max(0, sum(recent) // len(recent))
 
 # レーティング分類
 def rating_classify(rating):
