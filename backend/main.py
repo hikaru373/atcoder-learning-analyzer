@@ -55,6 +55,7 @@ def fetch_history(user):
 
 # レーティング推定
 RECENT_CONTESTS = 10   # 直近何回のRatedコンテストを使うか
+DECAY_SCALE = 5        # 重みの減衰の緩さ（小さいほど新しい回を重く見る）
 
 def estimate_rating(history):
     if not history:
@@ -64,7 +65,15 @@ def estimate_rating(history):
     if not perf:
         return 0
     recent = perf[-RECENT_CONTESTS:]   # 10回に満たない場合はある分だけ
-    return max(0, sum(recent) // len(recent))
+
+    # 新しい方からi回目の重みを 1 / (1 + i/DECAY_SCALE)^2 にする
+    total = 0
+    weight_sum = 0
+    for i, p in enumerate(reversed(recent)):
+        weight = 1 / (1 + i / DECAY_SCALE) ** 2
+        total += p * weight
+        weight_sum += weight
+    return max(0, int(total / weight_sum))
 
 # レーティング分類
 def rating_classify(rating):
