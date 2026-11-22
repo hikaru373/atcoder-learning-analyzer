@@ -5,6 +5,7 @@ import requests
 import redis
 import json
 import random
+from datetime import datetime, timezone
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -54,24 +55,24 @@ def fetch_history(user):
     return res.json()
 
 # レーティング推定
-RECENT_CONTESTS = 10   # 直近何回のRatedコンテストを使うか
+RECENT_CONTESTS = 6   # 直近何回のRatedコンテストを使うか
 DECAY_SCALE = 5        # 重みの減衰の緩さ（小さいほど新しい回を重く見る）
 
 def estimate_rating(history):
     if not history:
         return 0
-    # 上限（ABCは2400など）で切られる前の値を使う
-    perf = [h.get("InnerPerformance") for h in history if h.get("IsRated")]
-    if not perf:
+    rated = [h for h in history if h.get("IsRated")]
+    if not rated:
         return 0
-    recent = perf[-RECENT_CONTESTS:]   # 10回に満たない場合はある分だけ
+    recent = rated[-RECENT_CONTESTS:]   # RECENT_CONTESTS 回に満たない場合はある分だけ
 
-    # 新しい方からi回目の重みを 1 / (1 + i/DECAY_SCALE)^2 にする
     total = 0
     weight_sum = 0
-    for i, p in enumerate(reversed(recent)):
+    for i, h in enumerate(reversed(recent)):
+        # 新しい方からi回目の重みを 1 / (1 + i/DECAY_SCALE)^2 にする
         weight = 1 / (1 + i / DECAY_SCALE) ** 2
-        total += p * weight
+        # 上限（ABCは2400など）で切られる前の値を使う
+        total += h["InnerPerformance"] * weight
         weight_sum += weight
     return max(0, int(total / weight_sum))
 
