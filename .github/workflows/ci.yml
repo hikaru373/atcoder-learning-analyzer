@@ -18,7 +18,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # プロジェクトごとのテストはここに書き換える
   test:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -28,5 +27,14 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - uses: actions/setup-python@v6
+        with:
+          python-version-file: .python-version
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+
+      - name: 依存関係のインストール
+        run: pip install -r backend/requirements.txt "pytest<9.2" fakeredis httpx
+
       - name: テスト
-        run: echo "Hello World"
+        run: python -m pytest -v
