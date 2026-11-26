@@ -52,3 +52,10 @@ def test_estimate_rating(history, expected):
 def test_estimate_rating_recent_weighs_more():
     history = [contest(0)] * 4 + [contest(2000)] * 4  # 後ろほど新しい
     assert main.estimate_rating(history) > 1000
+
+
+
+# ユーザーが存在しない
+def test_analyze_unknown_user(client):
+    res = client.post("/analyze", data={"user": "nobody"})
+    assert "ユーザー名が存在しません" in res.text
