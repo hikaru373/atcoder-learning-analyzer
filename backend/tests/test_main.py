@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta, timezone
+
 import pytest
 
 from backend import main
@@ -22,3 +24,31 @@ from backend import main
 )
 def test_rating_classify(rating, expected):
     assert main.rating_classify(rating) == expected
+
+
+
+# レーティング推定
+def contest(perf, days_ago=0, rated=True):
+    end = datetime.now(timezone.utc) - timedelta(days=days_ago)
+    return {"IsRated": rated, "InnerPerformance": perf, "EndTime": end.isoformat()}
+
+@pytest.mark.parametrize(
+    "history, expected",
+    [
+        ([], 0),                                # 履歴なし
+        ([contest(2000, rated=False)], 0),      # Unrated は無視
+        ([contest(1600)], 1600),                # 1回だけならそのまま
+        ([contest(-300)], 0),                   # 負は 0
+        ([contest(1000, days_ago=730)], 950),   # 2年前は 5% 引き
+        ([contest(1000, days_ago=3650)], 850),  # 古すぎても最大 15% 引き
+    ],
+)
+
+    # 日付の重み
+def test_estimate_rating(history, expected):
+    assert main.estimate_rating(history) == expected
+
+    # 履歴順の重み
+def test_estimate_rating_recent_weighs_more():
+    history = [contest(0)] * 4 + [contest(2000)] * 4  # 後ろほど新しい
+    assert main.estimate_rating(history) > 1000
