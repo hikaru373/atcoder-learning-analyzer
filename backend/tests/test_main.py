@@ -1,3 +1,4 @@
+import json
 from datetime import datetime, timedelta, timezone
 
 import pytest
@@ -55,7 +56,16 @@ def test_estimate_rating_recent_weighs_more():
 
 
 
-# ユーザーが存在しない
+# ユーザーが存在しない場合
 def test_analyze_unknown_user(client):
     res = client.post("/analyze", data={"user": "nobody"})
     assert "ユーザー名が存在しません" in res.text
+
+
+# 分析が成功した場合
+def test_analyze(client, fake_redis, histories):
+    histories["alice"] = [contest(1300)]
+    res = client.post("/analyze", data={"user": "alice"})
+    assert ">1300</span>" in res.text   # 推定レート
+    assert "1200 - 1599" in res.text    # 推奨Diff
+    assert json.loads(fake_redis.get("user:alice"))["rating"] == 1300   # Redis に保存
