@@ -69,3 +69,16 @@ def test_analyze(client, fake_redis, histories):
     assert ">1300</span>" in res.text   # 推定レート
     assert "1200 - 1599" in res.text    # 推奨Diff
     assert json.loads(fake_redis.get("user:alice"))["rating"] == 1300   # Redis に保存
+
+
+# ランダム問題抽選
+@pytest.mark.parametrize(
+    "rating, expected",
+    [
+        (1300, "abc002_c"),   # 1300 // 400 = 3 番目の帯
+        (9999, "agc001_f"),   # 4400 以上は 10 番目の帯に丸める
+    ],
+)
+def test_random(client, rating, expected):
+    res = client.get("/random", params = {"rating": rating})
+    assert res.json()["random_problem"]["id"] == expected
