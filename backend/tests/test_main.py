@@ -44,7 +44,7 @@ def contest(perf, days_ago=0, rated=True):
     ],
 )
 
-    # 日付の重み
+    # 基本ケース・日付の重み
 def test_estimate_rating(history, expected):
     assert main.estimate_rating(history) == expected
 
