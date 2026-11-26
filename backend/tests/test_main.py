@@ -1,5 +1,24 @@
+import pytest
+
 from backend import main
 
 
-def test_rating_classify():
-    assert main.rating_classify(1200) == (1200, 1599, "#00C0C0")
+# 難易度範囲
+@pytest.mark.parametrize(
+    "rating, expected",
+    [
+        (0, (0, 399, "#808080")),           # 灰
+        (400, (400, 799, "#804000")),       # 茶
+        (800, (800, 1199, "#008000")),      # 緑
+        (1200, (1200, 1599, "#00C0C0")),    # 水
+        (1600, (1600, 1999, "#0000FF")),    # 青
+        (2000, (2000, 2399, "#C0C000")),    # 黄
+        (2400, (2400, 2799, "#FF8000")),    # 橙
+        (2800, (2800, 3199, "#FF0000")),    # 赤
+        (3200, (3200, 3599, "#FF0000")),    # 赤
+        (3600, (3600, 3999, "#FF0000")),    # 3600 以上は 3600〜3999
+        (5000, (3600, 3999, "#FF0000")),    # 4000 を超えても 3600〜3999
+    ],
+)
+def test_rating_classify(rating, expected):
+    assert main.rating_classify(rating) == expected
