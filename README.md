@@ -69,6 +69,9 @@ atcoder-learning-analyzer
 │    ├── src
 │    │    ├── App.tsx
 │    │    ├── main.tsx
+│    │    ├── components
+│    │    │    ├── Footer.tsx
+│    │    │    └── Footer.css
 │    │    └── pages
 │    │         ├── About.tsx
 │    │         └── About.css
