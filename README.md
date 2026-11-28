@@ -65,11 +65,16 @@ atcoder-learning-analyzer
 ├── frontend
 │    ├── html
 │    │    ├── input.html
-│    │    ├── result.html
-│    │    └── about.html
+│    │    └── result.html
 │    ├── src
 │    │    ├── App.tsx
-│    │    └── main.tsx
+│    │    ├── main.tsx
+│    │    ├── components
+│    │    │    ├── Footer.tsx
+│    │    │    └── Footer.css
+│    │    └── pages
+│    │         ├── About.tsx
+│    │         └── About.css
 │    ├── index.html
 │    ├── package.json
 │    └── vite.config.ts
@@ -78,8 +83,7 @@ atcoder-learning-analyzer
 │    │    └──logo_input.ico
 │    └── css
 │         ├── input.css
-│         ├── result.css
-│         └── about.css
+│         └── result.css
 └── TEST.md
 </pre>
 <br><br><br>
